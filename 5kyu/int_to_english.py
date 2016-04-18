@@ -20,5 +20,9 @@ def int_to_english(n):
         return single[n]
     elif n < 100:
         return tens[(n / 10) - 1] + " " + int_to_english(n % 10)
+    elif n < 1000:
+        return single[n / 100] + " "
+    + big[(n / 100) / (n / 100)] + " " + single[n % 100]
+    elif n <
 
-print int_to_english(11)
+print int_to_english(111)
