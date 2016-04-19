@@ -4,6 +4,7 @@
 # Lang: Python 2.7
 # CodeWars.com
 # klantag: # hashbrowns
+# @{u.u}@ codemonkey
 
 single = ["", "one", "two", "three",
           "four", "five", "six",
