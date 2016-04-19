@@ -1,5 +1,10 @@
 #!usr/bin/python
 
+# Author: ZhengC
+# Lang: Python 2.7
+# CodeWars.com
+# klantag: # hashbrowns
+
 single = ["", "one", "two", "three",
           "four", "five", "six",
           "seven", "eight", "nine",
