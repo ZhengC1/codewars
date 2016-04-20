@@ -12,12 +12,13 @@ single = ["", "one", "two", "three",
           "fourteen", "fifteen", "sixteen",
           "seventeen", "eighteen", "nineteen"]
 
-tens = [
-    "", "twenty", "thirty", "forty",
-    "fifty", "sixty", "seventy", "eighty",
-    "ninety"]
+tens = ["", "twenty", "thirty", "forty",
+        "fifty", "sixty", "seventy", "eighty",
+        "ninety", "hundred"]
 
-big = ["", "hundred", "thousand", "million", "billion"]
+big = ["", "thousand", "million",
+       "billion", "trillion", "quadrillion",
+       "sextillion", "septillion"]
 
 
 def int_to_english(n):
@@ -29,22 +30,24 @@ def int_to_english(n):
                 " " + int_to_english(n % 10)).rstrip()
     elif n < 1000:
         return (int_to_english(n / 100) +
-                " " + big[1] + " " + int_to_english(n % 100)).rstrip()
-    elif n < 1000000:
-        return (int_to_english(n / 1000) +
-                " " + big[2] + " " + int_to_english(n % 1000)).rstrip()
-    elif n < 1000000000:
-        return (int_to_english(n / 1000000) +
-                " " + big[3] + " " + int_to_english(n % 1000000)).rstrip()
-    elif n < 10000000000000:
-        return (int_to_english(n / 1000000000) +
-                " " + big[4] + " " + int_to_english(n % 1000000000)).rstrip()
+                " " + tens[9] + " " + int_to_english(n % 100)).rstrip()
+    else:
+        count = 0
+        num = n
+        while cat > 1000:
+            num = num / 1000
+            count += 1
+        return (int_to_english(num) +
+                " " + big[count] + " " + int_to_english(n / 1000).rstrip())
+
 
 print "{} {}".format("test 1", int_to_english(11))
-print "{} {}".format("test 2", int_to_english(47))
+print "{} {}".format("test 2", int_to_english(22))
 print "{} {}".format("test 3", int_to_english(333))
 print "{} {}".format("test 4", int_to_english(4444))
 print "{} {}".format("test 5", int_to_english(55555))
-print "{} {}".format("test 6", int_to_english(6666666))
-print "{} {}".format("test 7", int_to_english(777777777))
-print "{} {}".format("test 8", int_to_english(8888888888))
+print "{} {}".format("test 6", int_to_english(666666))
+print "{} {}".format("test 7", int_to_english(7777777))
+print "{} {}".format("test 8", int_to_english(88888888))
+print "{} {}".format("test 9", int_to_english(999999999))
+print "{} {}".format("final", int_to_english(12102398571235092837))
