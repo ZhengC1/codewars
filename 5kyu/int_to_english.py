@@ -18,7 +18,8 @@ tens = ["", "twenty", "thirty", "forty",
 
 big = ["", "thousand", "million",
        "billion", "trillion", "quadrillion",
-       "sextillion", "septillion"]
+       "quintillion", "sextillion", "septillion",
+       "octtillian", "nonillion", "decillion"]
 
 
 def int_to_english(n):
@@ -34,11 +35,11 @@ def int_to_english(n):
     else:
         count = 0
         num = n
-        while cat > 1000:
+        while num > 1000:
             num = num / 1000
             count += 1
         return (int_to_english(num) +
-                " " + big[count] + " " + int_to_english(n / 1000).rstrip())
+                " " + big[count] + " " + int_to_english(n % (1000 ** count)).rstrip())
 
 
 print "{} {}".format("test 1", int_to_english(11))
@@ -50,4 +51,5 @@ print "{} {}".format("test 6", int_to_english(666666))
 print "{} {}".format("test 7", int_to_english(7777777))
 print "{} {}".format("test 8", int_to_english(88888888))
 print "{} {}".format("test 9", int_to_english(999999999))
-print "{} {}".format("final", int_to_english(12102398571235092837))
+print "{} {}".format("test 10", int_to_english(12102398571235092837))
+print "{} {}".format("final", int_to_english(1564684613251584361432138))
